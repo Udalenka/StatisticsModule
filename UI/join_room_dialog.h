@@ -16,7 +16,7 @@ public:
 
     ~JoinRoomDialog();
 
-    int64_t roomId();
+    std::string roomId();
 
     std::string displayName();
 

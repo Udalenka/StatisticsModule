@@ -48,9 +48,9 @@ private slots:
 
 	void onCreateRoom(std::shared_ptr<vi::CreateRoomResult> result, int32_t errorCode);
 
-	void onJoinRoom(int64_t roomId, int32_t errorCode);
+	void onJoinRoom(std::string roomId, int32_t errorCode);
 
-	void onLeaveRoom(int64_t roomId, int32_t errorCode);
+	void onLeaveRoom(std::string roomId, int32_t errorCode);
 
 
 	// IMediaControlEventHandler

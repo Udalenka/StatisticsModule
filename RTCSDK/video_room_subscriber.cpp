@@ -47,12 +47,12 @@ namespace vi {
 		UniversalObservable<IVideoRoomEventHandler>::removeObserver(handler);
 	}
 
-	void VideoRoomSubscriber::setRoomId(int64_t roomId)
+	void VideoRoomSubscriber::setRoomId(std::string roomId)
 	{
 		_roomId = roomId;
 	}
 
-	int64_t VideoRoomSubscriber::getRoomId() const
+	std::string VideoRoomSubscriber::getRoomId() const
 	{
 		return _roomId;
 	}
@@ -265,7 +265,7 @@ namespace vi {
 				return;
 			}
 
-			DLOG("Successfully attached to feed in room {}", aEvent->plugindata->data->room.value_or(0));
+			DLOG("Successfully attached to feed in room {}", aEvent->plugindata->data->room.value_or(""));
 		}
 		else if (event.value_or("") == "event") {
 			// Check if we got an event on a simulcast-related event from this publisher

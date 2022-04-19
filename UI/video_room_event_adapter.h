@@ -29,14 +29,14 @@ private:
 
 	void onCreateRoom(std::shared_ptr<vi::CreateRoomResult> result, int32_t errorCode) override;
 
-	void onJoinRoom(int64_t roomId, int32_t errorCode) override;
+	void onJoinRoom(std::string roomId, int32_t errorCode) override;
 
-	void onLeaveRoom(int64_t roomId, int32_t errorCode) override;
+	void onLeaveRoom(std::string roomId, int32_t errorCode) override;
 
 signals:
 	void createRoom(std::shared_ptr<vi::CreateRoomResult> result, int32_t errorCode);
 
-	void joinRoom(int64_t roomId, int32_t errorCode);
+	void joinRoom(std::string roomId, int32_t errorCode);
 
-	void leaveRoom(int64_t roomId, int32_t errorCode);
+	void leaveRoom(std::string roomId, int32_t errorCode);
 };

@@ -143,7 +143,7 @@ namespace vi {
 		struct PublisherJoinRequest {
 			absl::optional<std::string> request = "join";
 			absl::optional<std::string> ptype = "publisher";	
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 			//absl::optional<int64_t> id;
 			absl::optional<std::string> display;
 			absl::optional<std::string> token;
@@ -161,7 +161,7 @@ namespace vi {
 
 		struct PublisherJoinData {
 			absl::optional<std::string> videoroom;
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 			absl::optional<std::string> description;
 			absl::optional<int64_t> id;
 			absl::optional<int64_t> private_id;
@@ -226,7 +226,7 @@ namespace vi {
 
 		struct SubscriberJoinRequest {
 			absl::optional<std::string> request = "join";
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 			absl::optional<std::string> ptype = "subscriber";
 			absl::optional<int64_t> feed;
 			absl::optional<int64_t> private_id;
@@ -250,7 +250,7 @@ namespace vi {
 
 		struct SubscriberJoinData {
 			absl::optional<std::string> videoroom;
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 			absl::optional<int64_t> feed;
 			absl::optional<std::string> display;
 
@@ -333,7 +333,7 @@ namespace vi {
 		*/
 		struct AttachedData {
 			absl::optional<std::string> videoroom;
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 
 			struct Stream {
 				absl::optional<bool> active;
@@ -401,7 +401,7 @@ namespace vi {
 		}*/
 		struct UpdatedData {
 			absl::optional<std::string> videoroom;
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 
 			struct Stream {
 				absl::optional<int64_t> mindex;
@@ -474,14 +474,14 @@ namespace vi {
 
 		struct StartPeerConnectionRequest {
 			absl::optional<std::string> request = "start";
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 
 			FIELDS_MAP("request", request, "room", room);
 		};
 
 		struct PausePeerConnectionRequest {
 			absl::optional<std::string> request = "pause";
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 
 			FIELDS_MAP("request", request, "room", room);
 		};
@@ -551,7 +551,7 @@ namespace vi {
 		//\endverbatim
 		struct CreateRoomRequest {
 			absl::optional<std::string> request = "create";
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 			absl::optional<bool> permanent;
 			absl::optional<std::string> description;
 			absl::optional<std::string> secret;
@@ -571,7 +571,7 @@ namespace vi {
 
 		struct RoomCurdData {
 			absl::optional<std::string> videoroom;
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 			absl::optional<bool> permanent;
 			absl::optional<bool> exists;
 			absl::optional<int64_t> error_code;
@@ -650,7 +650,7 @@ namespace vi {
 		 //\endverbatim
 		struct EditRoomRequest {
 			absl::optional<std::string> request = "edit";
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 			absl::optional<std::string> secret;
 			absl::optional<std::string> new_description;
 			absl::optional<std::string> new_secret;
@@ -692,7 +692,7 @@ namespace vi {
 		 //\endverbatim
 		struct DestroyRoomRequest {
 			absl::optional<std::string> request = "destroy";
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 			absl::optional<std::string> secret;
 			absl::optional<bool> permanent;
 
@@ -714,7 +714,7 @@ namespace vi {
 		//\endverbatim
 		struct ExistsRequest {
 			absl::optional<std::string> request = "exists";
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 
 			FIELDS_MAP("request", request, "room", room);
 		};
@@ -738,7 +738,7 @@ namespace vi {
 			absl::optional<std::string> request = "allowed";
 			absl::optional<std::string> secret;
 			absl::optional<std::string> action;
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 			absl::optional<std::vector<std::string>> allowed;
 
 			FIELDS_MAP("request", request,
@@ -768,7 +768,7 @@ namespace vi {
 
 		struct AllowedData {
 			absl::optional<std::string> videoroom;
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 			absl::optional<std::vector<TokenInfo>> allowed;
 			absl::optional<int64_t> error_code;
 			absl::optional<std::string> error;
@@ -812,7 +812,7 @@ namespace vi {
 		struct KickRequest {
 			absl::optional<std::string> request = "kick";
 			absl::optional<std::string> secret;
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 			absl::optional<int64_t> id;
 
 			FIELDS_MAP("request", request,
@@ -867,7 +867,7 @@ namespace vi {
 		struct ModerateRequest {
 			absl::optional<std::string> request = "moderate";
 			absl::optional<std::string> secret;
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 			absl::optional<int64_t> id;
 			absl::optional<std::string> mid;
 			absl::optional<bool> mute = false;
@@ -922,7 +922,7 @@ namespace vi {
 		};
 
 		struct VideoRoomInfo {
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 			absl::optional<std::string> description;
 			absl::optional<int64_t> max_publishers;
 			absl::optional<int64_t> bitrate;
@@ -988,7 +988,7 @@ namespace vi {
 		//\endverbatim
 		struct FetchParticipantsRequest {
 			absl::optional<std::string> request = "listparticipants";
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 
 			FIELDS_MAP("request", request, "room", room);
 		};
@@ -1004,7 +1004,7 @@ namespace vi {
 
 		struct ParticipantData {
 			absl::optional<std::string> videoroom;
-			absl::optional<int64_t> room;
+			absl::optional<std::string> room;
 			absl::optional<std::vector<ParticipantInfo>> participants;
 			absl::optional<int64_t> error_code;
 			absl::optional<std::string> error;

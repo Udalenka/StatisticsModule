@@ -13,9 +13,9 @@ JoinRoomDialog::~JoinRoomDialog()
     delete ui;
 }
 
-int64_t JoinRoomDialog::roomId()
+std::string JoinRoomDialog::roomId()
 {
-    return ui->roomIdLineEdit->text().toLongLong();
+    return ui->roomIdLineEdit->text().toLocal8Bit().constData();
 }
 
 std::string JoinRoomDialog::displayName()

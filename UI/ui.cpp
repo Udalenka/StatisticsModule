@@ -130,7 +130,7 @@ void GUI::onCreateRoom(std::shared_ptr<vi::CreateRoomResult> result, int32_t err
 		auto req = std::make_shared<vi::vr::PublisherJoinRequest>();
 		req->request = "join";
 		req->ptype = "publisher";
-		req->room = result->roomId.value_or(0);
+		req->room = result->roomId.value_or("");
 		req->display = _displayName;
 		req->pin = result->pin.value_or("");
 		_vrc->join(req);
@@ -140,12 +140,12 @@ void GUI::onCreateRoom(std::shared_ptr<vi::CreateRoomResult> result, int32_t err
 	}
 }
 
-void GUI::onJoinRoom(int64_t roomId, int32_t errorCode)
+void GUI::onJoinRoom(std::string roomId, int32_t errorCode)
 {
 	DLOG("join room '{}', code = {}", roomId, errorCode);
 }
 
-void GUI::onLeaveRoom(int64_t roomId, int32_t errorCode)
+void GUI::onLeaveRoom(std::string roomId, int32_t errorCode)
 {
 	if (_vrc) {
 		_vrc->detach();

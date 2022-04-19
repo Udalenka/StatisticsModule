@@ -30,9 +30,9 @@ namespace vi {
 
 		void unregisterEventHandler(std::shared_ptr<IVideoRoomEventHandler> handler);
 
-		void setRoomId(int64_t roomId);
+		void setRoomId(std::string roomId);
 
-		int64_t getRoomId() const;
+		std::string getRoomId() const;
 
 		void setPrivateId(int64_t id);
 
@@ -78,7 +78,7 @@ namespace vi {
 		void subscribe(const std::vector<vr::Publisher>& publishers);
 
 	private:
-		int64_t _roomId;
+		std::string _roomId;
 
 		std::weak_ptr<IVideoRoomApi> _videoRoomApi;
 

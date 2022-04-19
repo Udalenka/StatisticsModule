@@ -85,7 +85,7 @@ namespace vi {
 					UniversalObservable<IVideoRoomEventHandler>::notifyObservers([request, response](const auto& observer) {
 						if (response->plugindata->data.videoroom.value_or("") == "created") {
 							auto result = std::make_shared<CreateRoomResult>();
-							result->roomId = response->plugindata->data.room.value_or(0);
+							result->roomId = response->plugindata->data.room.value_or("");
 							result->description = request->description;
 							result->secret = request->secret;
 							result->pin = request->pin;
@@ -234,7 +234,7 @@ namespace vi {
 			_id = pluginData->data->id.value();
 			_privateId = pluginData->data->private_id.value();
 			_subscriber->setPrivateId(_privateId);
-			DLOG("Successfully joined room {} with ID {}", pluginData->data->room.value_or(0), _id);
+			DLOG("Successfully joined room {} with ID {}", pluginData->data->room.value_or(""), _id);
 
 			// TODO:
 			publishStream(true);

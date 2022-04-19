@@ -37,7 +37,6 @@ namespace vi {
 	{
 		_eventHandlerThread = TMgr->thread("plugin-client");
 		
-		//std::string url = "ws://192.168.0.108:8188/ws";
 		_client = std::make_shared<vi::JanusApiClient>("signaling-service");
 		_client->addListener(shared_from_this());
 		_client->init();

@@ -22,12 +22,12 @@ void VideoRoomEventAdapter::onCreateRoom(std::shared_ptr<vi::CreateRoomResult> r
 	emit createRoom(result, errorCode);
 }
 
-void VideoRoomEventAdapter::onJoinRoom(int64_t roomId, int32_t errorCode)
+void VideoRoomEventAdapter::onJoinRoom(std::string roomId, int32_t errorCode)
 {
 	emit joinRoom(roomId, errorCode);
 }
 
-void VideoRoomEventAdapter::onLeaveRoom(int64_t roomId, int32_t errorCode)
+void VideoRoomEventAdapter::onLeaveRoom(std::string roomId, int32_t errorCode)
 {
 	emit leaveRoom(roomId, errorCode);
 }

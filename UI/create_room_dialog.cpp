@@ -17,9 +17,9 @@ CreateRoomDialog::~CreateRoomDialog()
     delete ui;
 }
 
-int64_t CreateRoomDialog::roomId()
+std::string CreateRoomDialog::roomId()
 {
-    return ui->roomIdLineEdit->text().toLongLong();
+    return ui->roomIdLineEdit->text().toLocal8Bit().constData();
 }
 
 std::string CreateRoomDialog::description()

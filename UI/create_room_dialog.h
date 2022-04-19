@@ -16,7 +16,7 @@ public:
 
     ~CreateRoomDialog();
 
-    int64_t roomId();
+    std::string roomId();
 
     std::string description();
 

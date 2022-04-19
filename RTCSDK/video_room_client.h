@@ -54,7 +54,7 @@ namespace vi {
 
 		std::shared_ptr<MediaControllerInterface> mediaContrller() override;
 
-		int64_t roomId() { return _roomId; }
+		std::string roomId() { return _roomId; }
 
 		std::shared_ptr<IVideoRoomApi> videoRoomApi() { return _videoRoomApi; }
 
@@ -100,7 +100,7 @@ namespace vi {
 		void removeParticipant(int64_t id);
 
 	private:
-		int64_t _roomId;
+		std::string _roomId;
 
 		std::shared_ptr<IVideoRoomApi> _videoRoomApi;
 
