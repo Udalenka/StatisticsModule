@@ -5,63 +5,33 @@
 TEMPLATE = app
 TARGET = UI
 DESTDIR = ../x64/Debug
-QT += core network gui widgets websockets
+QT += core opengl network gui widgets websockets
 CONFIG += debug
-DEFINES += _UNICODE _ENABLE_EXTENDED_ALIGNED_STORAGE WIN64 QT_DLL QT_WIDGETS_LIB USE_AURA=1 NO_TCMALLOC FULL_SAFE_BROWSING SAFE_BROWSING_CSD SAFE_BROWSING_DB_LOCAL CHROMIUM_BUILD _HAS_EXCEPTIONS=0 __STD_C _CRT_RAND_S _CRT_SECURE_NO_DEPRECATE _SCL_SECURE_NO_DEPRECATE _ATL_NO_OPENGL _WINDOWS CERT_CHAIN_PARA_HAS_EXTRA_FIELDS PSAPI_VERSION=2 _SECURE_ATL _USING_V110_SDK71_ WINAPI_FAMILY=WINAPI_FAMILY_DESKTOP_APP WIN32_LEAN_AND_MEAN NOMINMAX NTDDI_VERSION=NTDDI_WIN10_RS2 _WIN32_WINNT=0x0A00 WINVER=0x0A00 DYNAMIC_ANNOTATIONS_ENABLED=1 WTF_USE_DYNAMIC_ANNOTATIONS=1 WEBRTC_ENABLE_PROTOBUF=1 WEBRTC_INCLUDE_INTERNAL_AUDIO_DEVICE RTC_ENABLE_VP9 HAVE_SCTP WEBRTC_USE_H264 WEBRTC_NON_STATIC_TRACE_EVENT_HANDLERS=0 WEBRTC_WIN ABSL_ALLOCATOR_NOTHROW=1 HAVE_WEBRTC_VIDEO HAVE_WEBRTC_VOICE ASIO_STANDALONE _WEBSOCKETPP_CPP11_RANDOM_DEVICE_ _WEBSOCKETPP_CPP11_INTERNAL_
+DEFINES += _UNICODE _ENABLE_EXTENDED_ALIGNED_STORAGE WIN64 USE_AURA=1 NO_TCMALLOC FULL_SAFE_BROWSING SAFE_BROWSING_CSD SAFE_BROWSING_DB_LOCAL CHROMIUM_BUILD _HAS_EXCEPTIONS=0 __STD_C _CRT_RAND_S _CRT_SECURE_NO_DEPRECATE _SCL_SECURE_NO_DEPRECATE _WINDOWS CERT_CHAIN_PARA_HAS_EXTRA_FIELDS PSAPI_VERSION=2 _SECURE_ATL _USING_V110_SDK71_ WINAPI_FAMILY=WINAPI_FAMILY_DESKTOP_APP WIN32_LEAN_AND_MEAN NOMINMAX NTDDI_VERSION=NTDDI_WIN10_RS2 _WIN32_WINNT=0x0A00 WINVER=0x0A00 DYNAMIC_ANNOTATIONS_ENABLED=1 WTF_USE_DYNAMIC_ANNOTATIONS=1 WEBRTC_ENABLE_PROTOBUF=1 WEBRTC_INCLUDE_INTERNAL_AUDIO_DEVICE RTC_ENABLE_VP9 HAVE_SCTP WEBRTC_USE_H264 WEBRTC_NON_STATIC_TRACE_EVENT_HANDLERS=0 WEBRTC_WIN ABSL_ALLOCATOR_NOTHROW=1 HAVE_WEBRTC_VIDEO HAVE_WEBRTC_VOICE RTCCORE_LIB ASIO_STANDALONE _WEBSOCKETPP_CPP11_RANDOM_DEVICE_ _WEBSOCKETPP_CPP11_INTERNAL_ _ATL_NO_OPENGL QT_NETWORK_LIB QT_OPENGL_LIB QT_WIDGETS_LIB
 INCLUDEPATH += ./GeneratedFiles \
-    . \
     ./GeneratedFiles/$(ConfigurationName) \
-    ./../webrtc/include/webrtc \
-    ./../webrtc/include/third_party/libyuv/include \
-    ./../webrtc/include/third_party/jsoncpp/include \
-    ./../include \
-    ./../include/asio/include \
-    ./../include/websocketpp \
-    ./../RTCSDK
-
+    . \
+    ./../RTCSDK \
+    ./../3rd \
+    ./../3rd/webrtc/include \
+    ./../3rd/webrtc/include/third_party/abseil-cpp \
+    ./../3rd/webrtc/include/third_party/libyuv/include \
+    ./../3rd/glew/include \
+    ./../3rd/websocketpp \
+    ./../3rd/rapidjson/include \
+    ./../3rd/asio/asio/include \
+    ./../3rd/spdlog/include \
+    ./../3rd/concurrentqueue
 DEPENDPATH += .
+
+LIBS += ./x64/Debug -lglew32s
+LIBS += ./x64/Debug -lwebrtc
+LIBS += ./x64/Debug -lRTCSDK
+#LIBS += ../../build-RTCSln-Desktop_Qt_5_12_2_MSVC2017_64bit-Debug/x64/Debug -lRTCSDK
+
 MOC_DIR += ./GeneratedFiles/$(ConfigurationName)
 OBJECTS_DIR += debug
 UI_DIR += ./GeneratedFiles
 RCC_DIR += ./GeneratedFiles
+include(UI.pri)
 win32:RC_FILE = UI.rc
-
-FORMS += \
-    create_room_dialog.ui \
-    gallery_view.ui \
-    janus_connection_dialog.ui \
-    join_room_dialog.ui \
-    participant_item_view.ui \
-    participants_list_view.ui \
-    ui.ui
-
-HEADERS += \
-    create_room_dialog.h \
-    gallery_view.h \
-    gl_defines.h \
-    gl_video_renderer.h \
-    gl_video_shader.h \
-    i420_texture_cache.h \
-    janus_connection_dialog.h \
-    join_room_dialog.h \
-    participant_item_view.h \
-    participants_list_view.h \
-    ui.h
-SOURCES += \
-    create_room_dialog.cpp \
-    gallery_view.cpp \
-    gl_video_renderer.cpp \
-    gl_video_shader.cpp \
-    i420_texture_cache.cpp \
-    janus_connection_dialog.cpp \
-    join_room_dialog.cpp \
-    main_qt.cpp \
-    participant_item_view.cpp \
-    participants_list_view.cpp \
-    ui.cpp
-
-RESOURCES += \
-    ui.qrc
-
-DISTFILES += \
-    UI.rc

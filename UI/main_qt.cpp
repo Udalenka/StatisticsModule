@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
 	if (QDialog::Accepted == jcDialog->exec()) {
 		jcDialog->cleanup();
 
-		std::shared_ptr<UI> w = std::make_shared<UI>();
+		std::shared_ptr<GUI> w = std::make_shared<GUI>();
 		appDelegate->getRtcEngine()->registerEventHandler(w);
 
 		w->show();

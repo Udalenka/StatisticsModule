@@ -74,6 +74,8 @@ namespace vi {
 		}
 		DLOG("janus api client, connecting...");
 		_client->connect(url);
+
+		//this->onOpened();
 	}
 
 	SessionStatus SignalingClient::sessionStatus()
@@ -228,7 +230,7 @@ namespace vi {
 			if (!self) {
 				return;
 			}
-			if (auto& pluginClient = self->getHandler(handleId)) {
+            if (const auto& pluginClient = self->getHandler(handleId)) {
 				pluginClient->onCleanup();
 			}
 		});
@@ -303,7 +305,7 @@ namespace vi {
 		}
 
 		int64_t sender = response->sender.value();
-		auto& pluginClient = getHandler(sender);
+        const auto& pluginClient = getHandler(sender);
 		if (!pluginClient) {
 			return;
 		}

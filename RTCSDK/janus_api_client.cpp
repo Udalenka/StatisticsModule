@@ -7,6 +7,7 @@
 #include "janus_api_client.h"
 #include <iostream>
 #include "message_transport.h"
+//#include "websocket/websocket_transport.h"
 #include "message_models.h"
 #include "utils/string_utils.h"
 #include "logger/logger.h"
@@ -62,8 +63,8 @@ namespace vi {
 		JanusRequest request;
 		request.janus = "create";
 		request.transaction = StringUtils::randomString(12);
-		request.token = _token;
-		request.apisecret = _apisecret;
+		//request.token = _token;
+		//request.apisecret = _apisecret;
 
 		auto handler = std::make_shared<JCHandler>(request.transaction.value(), wrapAsyncCallback(callback));
 

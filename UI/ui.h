@@ -20,17 +20,17 @@ class MediaEventAdapter;
 class VideoRoomEventAdapter;
 class ParticipantsEventAdapter;
 
-class UI
+class GUI
 	: public QMainWindow
 	, public vi::IEngineEventHandler
-	, public std::enable_shared_from_this<UI>
+	, public std::enable_shared_from_this<GUI>
 {
 	Q_OBJECT
 
 public:
-	UI(QWidget *parent = Q_NULLPTR);
+	GUI(QWidget *parent = Q_NULLPTR);
 
-	~UI();
+	~GUI();
 
 	void init();
 

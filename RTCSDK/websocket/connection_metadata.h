@@ -7,12 +7,15 @@
 #pragma once
 
 #include <memory>
-#include <websocketpp/config/asio_no_tls_client.hpp>
+
+//#include <websocketpp/config/asio_no_tls_client.hpp>
+#include <websocketpp/config/asio_client.hpp>
 #include <websocketpp/client.hpp>
 #include "websocket/i_connection_listener.h"
 
 
-typedef websocketpp::client<websocketpp::config::asio_client> client;
+//typedef websocketpp::client<websocketpp::config::asio_client> client;
+typedef websocketpp::client<websocketpp::config::asio_tls_client> client;
 
 namespace vi {
 
