@@ -22,13 +22,16 @@ INCLUDEPATH += ./GeneratedFiles \
     ./../3rd/asio/asio/include \
     ./../3rd/spdlog/include \
     ./../3rd/concurrentqueue
+
+LIBS += ../../build-RTCSln-Desktop_Qt_5_12_2_MSVC2019_64bit-Debug/x64/Debug -lRTCSDK
+LIBS += ../3rd/webrtc/lib/windows_release_x64/x64 -lwebrtc
+LIBS += ../3rd/glew/lib/Release/x64 -lglew32
+#"qtmaind.lib" "advapi32.lib" "comdlg32.lib" "dbghelp.lib" "dnsapi.lib" "gdi32.lib" "msimg32.lib" "odbc32.lib"
+#"odbccp32.lib" "oleaut32.lib" "shell32.lib" "shlwapi.lib" "user32.lib" "usp10.lib" "uuid.lib" "version.lib"
+#"wininet.lib" "winmm.lib" "winspool.lib" "ws2_32.lib" "delayimp.lib" "kernel32.lib" "ole32.lib" "crypt32.lib"
+#"iphlpapi.lib" "secur32.lib" "dmoguids.lib" "wmcodecdspuuid.lib" "amstrmid.lib" "msdmo.lib" "strmiids.lib"
+#"webrtc.lib" "RTCSDK.lib" "opengl32.lib" "glu32.lib" "glew32.lib"
 DEPENDPATH += .
-
-LIBS += ./x64/Debug -lglew32s
-LIBS += ./x64/Debug -lwebrtc
-LIBS += ./x64/Debug -lRTCSDK
-#LIBS += ../../build-RTCSln-Desktop_Qt_5_12_2_MSVC2017_64bit-Debug/x64/Debug -lRTCSDK
-
 MOC_DIR += ./GeneratedFiles/$(ConfigurationName)
 OBJECTS_DIR += debug
 UI_DIR += ./GeneratedFiles

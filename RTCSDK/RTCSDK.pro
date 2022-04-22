@@ -19,11 +19,10 @@ INCLUDEPATH += ./GeneratedFiles \
     ./../3rd/rapidjson/include \
     ./../3rd/spdlog/include \
     ./../3rd/concurrentqueue
-DEPENDPATH += .
 
+LIBS += ../3rd/webrtc/lib/windows_release_x64/x64 -lwebrtc
 LIBS += ../3rd/glew/lib/Release/x64 -lglew32
-LIBS += ../3rd/webrtc/lib/windows_release_x64 -lwebrtc
-
+DEPENDPATH += .
 MOC_DIR += ./GeneratedFiles/$(ConfigurationName)
 OBJECTS_DIR += debug
 UI_DIR += ./GeneratedFiles
